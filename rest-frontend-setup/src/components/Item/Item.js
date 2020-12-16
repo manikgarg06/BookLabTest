@@ -5,23 +5,23 @@ import './Item.css'
 const item = (props) => {
 
     return (
-        <div className="grid">
-            <article class="card test-item">
-                <header class="card__header">
-                    <h1 class="test__title">
+        <div>
+            <article className="card test-item">
+                <header className="card__header">
+                    <h1 className="test__title">
                         {props.itemName}
                     </h1>
                 </header>
 
-                <div class="card__content">
-                    <h2 class="test__price">{props.minPrice}
+                <div className="card__content">
+                    <h2 className="test__price">Price : {props.minPrice}
                     </h2>
-                    <p class="test__lab">
-                        {props.labName}
+                    <p className="test__lab">
+                        Lab : {props.labName}
                     </p>
                 </div>
-                <div class="card__actions">
-                    <button type="submit" class="btn">
+                <div className="card__actions">
+                    <button type="submit" className="btn">
                         Add to Cart
                                     </button>
                 </div>

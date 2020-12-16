@@ -5,8 +5,7 @@ import './NavigationItems.css';
 
 const navItems = [
   { id: 'tests', text: 'Lab Tests', link: '/', auth: true },
-  { id: 'cart', text: 'Cart', link: '/', auth: true },
-  { id: 'orders', text: 'Orders', link: '/', auth: true },
+  { id: 'cart', text: 'Cart', link: '/cart', auth: true },
   { id: 'login', text: 'Login', link: '/', auth: false },
 ];
 

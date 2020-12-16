@@ -1,0 +1,18 @@
+.test__search {
+    width: 90%;
+    margin: 1rem auto;
+  }
+  
+  .test__search form {
+    display: flex;
+    align-items: center;
+  }
+  
+  .test__search form * {
+    margin: 0 0.5rem;
+  }
+  @media (min-width: 768px) {
+    .test__search {
+      width: 30rem;
+    }
+  }
