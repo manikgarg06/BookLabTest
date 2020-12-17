@@ -6,12 +6,11 @@ import { withRouter } from 'react-router-dom'
 const cart = (props) => {
 
     
-    console.log(props  )
     return (
         <div>
             <ul className="cart__item-list">
                 {props.cartItems.map( cartItem => {
-                    return <CartItem cartItem={cartItem} key={cartItem.itemId + "C"} deleteItem={props.deleteFromCarthandler} />
+                    return <CartItem cartItem={cartItem} key={cartItem.rowid} deleteItem={props.deleteFromCarthandler} />
                 } )}
             </ul>
             <div className="centered">

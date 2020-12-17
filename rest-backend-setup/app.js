@@ -1,14 +1,64 @@
-const http = require('http');
+const express = require('express');
+const sequelize = require('./database');
+const Labtest = require('./models/labtest');
+const { Op } = require('sequelize');
+const port = 3001;
 
-const hostname = '127.0.0.1';
-const port = 3000;
+const app = express();
 
-const server = http.createServer((req, res) => {
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'text/plain');
-  res.end('Hello World');
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'OPTIONS, GET');
+  next();
 });
 
-server.listen(port, hostname, () => {
-  console.log(`Server running at http://${hostname}:${port}/`);
-});
+// app.use('/labtests/search',(req, res, next) => {
+//   let keyword = req.params.keyword;
+//   if(!keyword){
+//     keyword = "";
+//   }
+//   console.log(req.params)
+//   Labtest.findAll({
+//       attributes : ['rowid','testdata']
+//       })
+//       .then( data => 
+//         {
+//           console.log(data)
+//           const testsData = data.filter( test => {
+//             return test.testData[Keyword].includes(keyword) 
+//           })
+//           res.status(200).json({
+//           tests: testsData,
+//           message: 'Tests fetched Successfully'
+//         })}
+//       )    
+//       .catch(err => {
+//           console.log(err);
+//       })
+// })
+app.use('/labtests',(req, res, next) => {
+  Labtest.findAll({attributes : ['rowid','testdata']})
+      .then( data => 
+        {
+          res.status(200).json({
+          tests: data,
+          message: 'Tests fetched Successfully'
+        })}
+      )    
+      .catch(err => {
+          console.log(err);
+      })
+})
+
+
+sequelize
+    .sync()
+    .then(() => {
+      return Labtest.findAll({attributes : ['rowid','testdata']});
+    })
+    .then(() => {
+      app.listen(port);
+    })
+    .catch(err => {
+        console.log(err);
+    })

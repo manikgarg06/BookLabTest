@@ -3,7 +3,6 @@ import { withRouter } from 'react-router-dom'
 
 
 const checkout = (props) => {
-    console.log(props)
     const itemSummary = props.items.map( item => {
         return <li key={item.itemId}>
             <p>Test: {item.itemName}</p> 

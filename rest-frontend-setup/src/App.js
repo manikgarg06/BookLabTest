@@ -18,6 +18,8 @@ class App extends Component {
   };
   
   defaultUsers = [{email :  "test@test.com",password : "test"},{email :  "test2@test.com",password : "test2"}]
+
+
   loginHandler = (event, authData) => {
     event.preventDefault();
     if(authData.email && authData.password ){
@@ -30,7 +32,7 @@ class App extends Component {
         alert('Username or password invalid')
       }
     }else{
-      this.setState({...this.state,isAuth : true})
+      // this.setState({...this.state,isAuth : true})
       alert("Username or password cannot be empty")
     }
 
@@ -44,7 +46,7 @@ class App extends Component {
     let updatedCartItem;
     let updatedCart;
     const cartItemIndex = this.state.cart.findIndex( item => {
-      if(item.itemId === cartItem.itemId){
+      if(item.rowid === cartItem.rowid){
         return true;
       }
       return false
@@ -77,11 +79,10 @@ class App extends Component {
 }
   deleteFromCarthandler = (cartItem) => {
 
-    console.log(cartItem)
     let updatedCartItem;
     let updatedCart;
     const cartItemIndex = this.state.cart.findIndex( item => {
-      if(item.itemId === cartItem.itemId){
+      if(item.rowid === cartItem.rowid){
         return true;
       }
       return false
