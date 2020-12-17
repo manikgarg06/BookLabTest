@@ -19,7 +19,7 @@ class App extends Component {
   
   defaultUsers = [{email :  "test@test.com",password : "test"},{email :  "test2@test.com",password : "test2"}]
 
-
+// To handle the login event from Login Page
   loginHandler = (event, authData) => {
     event.preventDefault();
     if(authData.email && authData.password ){
@@ -37,11 +37,12 @@ class App extends Component {
     }
 
   }
-
+// logout the user from application.
   logoutHandler = () => {
     this.setState({isAuth : false})
   }
-
+// to add the item into the cart and it will be visible 
+// in Cart Page
   addToCartHandler = (cartItem) => {
     let updatedCartItem;
     let updatedCart;
@@ -66,6 +67,7 @@ class App extends Component {
       return  {...prevState,cart : updatedCart,totalPrice : prevState.totalPrice + Number(cartItem.minPrice)}
     })
   }
+  // When user click on Order Now button from Cart Page redirect the user to checkout page
   orderHandler = () => {
     const order = {items : [...this.state.cart],totalPrice : this.state.totalPrice}
 
@@ -77,6 +79,7 @@ class App extends Component {
       return {...prevState,cart : [],totalPrice : 0}
     })
 }
+//  deletes the item from cart and update the price accordingly
   deleteFromCarthandler = (cartItem) => {
 
     let updatedCartItem;
