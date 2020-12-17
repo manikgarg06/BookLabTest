@@ -3,7 +3,7 @@ import React from 'react'
 import './Item.css'
 
 const item = (props) => {
-    const {test} = props;
+    const { test } = props;
 
     return (
         <div>
@@ -18,7 +18,7 @@ const item = (props) => {
                     <h2 className="test__price">Price : {test.minPrice}
                     </h2>
                     <p className="test__lab">
-                        Lab : {test.labName}
+                        Lab : {test.labName ? test.labName : "NA" } 
                     </p>
                 </div>
                 <div className="card__actions">

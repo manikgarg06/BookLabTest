@@ -87,7 +87,6 @@ class App extends Component {
       }
       return false
     })
-    console.log(cartItemIndex)
     let cart = this.state.cart
     if(cartItemIndex > -1){
       const cartItem = this.state.cart[cartItemIndex]
