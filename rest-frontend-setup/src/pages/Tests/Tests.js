@@ -12,8 +12,10 @@ class Tests extends React.Component {
     componentDidMount(){
         this.setState( prevTest => {
             return {
-                tests : [{itemName : "COVID-19 Test",labName:"Metropolis",minPrice:"4500"},
-                {itemName : "COVID-19 Test",labName:"Metropolis",minPrice:"4500"},{itemName : "COVID-19 Test",labName:"Metropolis",minPrice:"4500"},{itemName : "COVID-19 Test",labName:"Metropolis",minPrice:"4500"}]
+                tests : [{itemId : "DIANM11", itemName : "COVID-19 Test",labName:"Metropolis",minPrice:"4500"},
+                {itemId : "DIANM12",itemName : "COVID-19 Test",labName:"Metropolis",minPrice:"4500"},
+                {itemId : "DIANM13",itemName : "COVID-19 Test",labName:"Metropolis",minPrice:"4500"},
+                {itemId : "DIANM14" ,itemName : "COVID-19 Test",labName:"Metropolis",minPrice:"4500"}]
             }
         })
     }
@@ -35,7 +37,10 @@ class Tests extends React.Component {
             </section>
             <div className="grid">
                 {this.state.tests.map( test => {
-                    return <Item itemName={test.itemName} labName={test.labName} minPrice={test.minPrice}/>
+                    return <Item key={test.itemId}
+                     cartHandler = {this.props.cartHandler} 
+                     test={test}
+                     />
                 })}
             </div>
         </div>

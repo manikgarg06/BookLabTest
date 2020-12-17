@@ -1,15 +1,18 @@
 import React from 'react'
 
-import './Item.css'
+import './CartItem.css'
 
 const item = (props) => {
+
+    const {cartItem} = props;
+
     return (
         <div>
             <li className="cart__item">
-                <h1>{props.itemName}</h1>
-                <h2>Qty: {props.quantity}</h2>
-                <h2>Price: {props.minPrice}</h2>
-                <button className="btn danger" type="submit">Delete</button>
+                <h1>{cartItem.itemName}</h1>
+                <h2>Qty: {cartItem.quantity}</h2>
+                <h2>Price: {cartItem.price}</h2>
+                <button className="btn danger" onClick={() => props.deleteItem(cartItem)}>Delete</button>
             </li>
         </div>
     )

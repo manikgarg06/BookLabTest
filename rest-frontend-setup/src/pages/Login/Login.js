@@ -18,7 +18,7 @@ class Login extends Component {
         [input]: value
       };
       return {
-        loginForm: updatedForm
+        loginForm: updatedForm 
       };
     });
   };
@@ -30,8 +30,8 @@ class Login extends Component {
         <form
           onSubmit={e =>
             this.props.onLogin(e, {
-              email: this.state.loginForm.email.value,
-              password: this.state.loginForm.password.value
+              email: this.state.loginForm.email,
+              password: this.state.loginForm.password
             })
           }
         >
@@ -39,7 +39,7 @@ class Login extends Component {
             <label htmlFor="email">Your E-Mail</label>
             <input  
               type="email" 
-              onChange={this.inputChangeHandler}
+              onChange={(e) => this.inputChangeHandler('email',e.target.value)}
               value={this.state.loginForm['email'].value}
             />
           </div>
@@ -47,7 +47,7 @@ class Login extends Component {
             <label htmlFor="password">Password</label>
             <input  
               type="password" 
-              onChange={this.inputChangeHandler}
+              onChange={(e) => this.inputChangeHandler('password',e.target.value)}
               value={this.state.loginForm['password'].value}
             />
           </div>
